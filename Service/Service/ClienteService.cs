@@ -31,6 +31,11 @@ namespace Service
         {
             return _clienteRepository.ObterTodosClientesRepository();
         }
+
+        public IEnumerable<Cliente> ObterClientePeloCpfENomeService(string filtroNomeOuCpf)
+        {
+            return _clienteRepository.ObterClientePeloCpfENomeRepository(filtroNomeOuCpf);
+        }
     }
 
 }

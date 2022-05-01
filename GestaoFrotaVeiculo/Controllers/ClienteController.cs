@@ -44,5 +44,23 @@ namespace GestaoFrotaVeiculo.Controllers
 
             return Ok(_clienteServices.ObterTodosClientesService());
         }
+
+
+
+        //conferir rota depois retorno certinho
+        [HttpGet]
+        [Route("{filtroNomeOuCpf}/filtro")]
+        //conferir retornos atuais
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<IEnumerable<Cliente>> ObterClientePeloCpf(string filtroNomeOuCpf)
+        {
+
+            return Ok(_clienteServices.ObterClientePeloCpfENomeService(filtroNomeOuCpf));
+        }
+
     }
 }

@@ -71,5 +71,30 @@ namespace Data.Repositories
                 throw new Exception($"ERRO: {ex.Message}");
             }
         }
+
+
+        public IEnumerable<Cliente> ObterClientePeloCpfENomeRepository(string filtroNomeOuCpf)
+        {
+            try
+            {
+                var parametros = new DynamicParameters();
+                parametros.Add("@filtro", filtroNomeOuCpf, DbType.String);
+
+                const string sql = "SELECT * FROM cliente WHERE nome = @filtro";
+
+                ValidaConexao();
+
+                var resultado = _conexao.Query<Cliente>(sql);
+
+                Dispose();
+
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERRO: {ex.Message}");
+            }
+        }
     }
 }

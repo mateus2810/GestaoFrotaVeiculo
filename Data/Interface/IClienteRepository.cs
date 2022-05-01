@@ -8,5 +8,7 @@ namespace Data.Interface
     {
         public IEnumerable<Cliente> InserirClienteRepository(Cliente cliente);
         public IEnumerable<Cliente> ObterTodosClientesRepository();
+
+        public IEnumerable<Cliente> ObterClientePeloCpfENomeRepository(string filtroNomeOuCpf);
     }
 }

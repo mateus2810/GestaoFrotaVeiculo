@@ -7,5 +7,7 @@ namespace Service.Interface
     {
         public IEnumerable<Cliente> InserirClienteService(Cliente cliente);
         public IEnumerable<Cliente> ObterTodosClientesService();
+
+        public IEnumerable<Cliente> ObterClientePeloCpfENomeService(string filtroNomeOuCpf);
     }
 }
