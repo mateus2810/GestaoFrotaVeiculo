@@ -17,6 +17,13 @@ namespace Service
 
         public IEnumerable<Cliente> InserirClienteService(Cliente cliente)
         {
+            //validação de nome, não poder receber numero
+            //criar validação cpf valido, se nulo inserir mensagem
+            //criar validação cnh valido, se nulo inserir mensagem
+            //nascimento aceitar apenas datas
+
+            //validar nascimento maior que 18 anos
+
             return _clienteRepository.InserirClienteRepository(cliente);
         }
 

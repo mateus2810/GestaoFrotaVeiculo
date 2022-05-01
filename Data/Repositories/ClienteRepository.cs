@@ -24,7 +24,7 @@ namespace Data.Repositories
                 parametros.Add("@cpf", cliente.cpf, DbType.Int64);
                 parametros.Add("@nascimento", cliente.nascimento, DbType.Date);
                 parametros.Add("@numero_cnh", cliente.nome, DbType.String);
-                parametros.Add("@endereco", cliente.nome, DbType.String);
+                parametros.Add("@endereco", cliente.endereco, DbType.String);
 
                 const string sql = "" +
                     "INSERT INTO cliente " +

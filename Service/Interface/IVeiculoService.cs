@@ -1,12 +1,10 @@
 ﻿using Data.Entidade;
 using System.Collections.Generic;
 
-namespace Data.Interfaces
+namespace Service.Interface
 {
-    public interface IVeiculoRepository
+    public interface IVeiculoService
     {
-        public IEnumerable<Ator> Teste();
-
         public IEnumerable<Veiculo> InserirVeiculo(Veiculo veiculo);
     }
 }

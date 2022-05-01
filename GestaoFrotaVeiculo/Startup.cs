@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Service;
 using Service.Interface;
+using Service.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,7 @@ namespace GestaoFrotaVeiculo
             });
 
             services.AddScoped<DbSession>();
+            services.AddTransient<IVeiculoService, VeiculoService>();
             services.AddTransient<IVeiculoRepository, VeiculoRepository>();
             services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<IClienteRepository, ClienteRepository>();
