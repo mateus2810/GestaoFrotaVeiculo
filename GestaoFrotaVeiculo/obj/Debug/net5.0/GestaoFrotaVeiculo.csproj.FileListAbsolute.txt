@@ -40,3 +40,5 @@ C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoFrotaVeicul
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoFrotaVeiculo\GestaoFrotaVeiculo\bin\Debug\net5.0\Data.pdb
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoFrotaVeiculo\GestaoFrotaVeiculo\bin\Debug\net5.0\MySqlConnector.dll
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoFrotaVeiculo\GestaoFrotaVeiculo\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoFrotaVeiculo\GestaoFrotaVeiculo\bin\Debug\net5.0\Service.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoFrotaVeiculo\GestaoFrotaVeiculo\bin\Debug\net5.0\Service.pdb

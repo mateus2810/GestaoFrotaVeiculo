@@ -291,6 +291,19 @@
         "runtime": {
           "bin/placeholder/Data.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
@@ -854,12 +867,18 @@
       "type": "project",
       "path": "../Data/Data.csproj",
       "msbuildProject": "../Data/Data.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Dapper >= 2.0.123",
       "Data >= 1.0.0",
+      "Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -892,6 +911,9 @@
           "projectReferences": {
             "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoFrotaVeiculo\\Data\\Data.csproj": {
               "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoFrotaVeiculo\\Data\\Data.csproj"
+            },
+            "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoFrotaVeiculo\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoFrotaVeiculo\\Service\\Service.csproj"
             }
           }
         }

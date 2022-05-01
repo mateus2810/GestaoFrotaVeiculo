@@ -14,11 +14,6 @@ namespace Data.Repositories.Base
         {
             try
             {
-                //var config = new ConfigurationBuilder()
-                //.SetBasePath(Directory.GetCurrentDirectory())
-                //.AddJsonFile("appsettings.json")
-                //.Build();
-
                 _conexao = new MySqlConnection(config.GetConnectionString("DefaultConnection"));
             }
             catch (Exception ex)

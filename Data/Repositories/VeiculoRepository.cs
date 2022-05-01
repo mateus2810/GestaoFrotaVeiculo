@@ -26,7 +26,10 @@ namespace Data
         {
             try
             {
-                const string sql = "SELECT * FROM ator ";
+                //const string sql = "SELECT * FROM ator ";
+
+                const string sql = "select * from ator";
+
 
                 ValidaConexao();
 

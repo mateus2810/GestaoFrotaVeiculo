@@ -1,5 +1,7 @@
 using Data;
+using Data.Interface;
 using Data.Interfaces;
+using Data.Repositories;
 using Data.Repositories.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Service;
+using Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +42,8 @@ namespace GestaoFrotaVeiculo
 
             services.AddScoped<DbSession>();
             services.AddTransient<IVeiculoRepository, VeiculoRepository>();
+            services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<IClienteRepository, ClienteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
