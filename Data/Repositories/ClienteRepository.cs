@@ -77,13 +77,14 @@ namespace Data.Repositories
             try
             {
                 var parametros = new DynamicParameters();
-                parametros.Add("@filtro", filtroCpfOuNome, DbType.String);
+                parametros.Add("@filtro", "%" + filtroCpfOuNome + "%", DbType.String);
 
-                const string sql = "SELECT * FROM cliente WHERE nome = @filtro";
+
+                const string sql = "SELECT * FROM cliente where nome LIKE @filtro OR cpf LIKE @filtro";
 
                 ValidaConexao();
 
-                var resultado = _conexao.Query<Cliente>(sql);
+                var resultado = _conexao.Query<Cliente>(sql, parametros);
 
                 Dispose();
 
