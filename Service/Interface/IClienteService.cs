@@ -9,5 +9,9 @@ namespace Service.Interface
         public IEnumerable<Cliente> ObterTodosClientesService();
 
         public IEnumerable<Cliente> ObterClientePeloCpfENomeService(string filtroNomeOuCpf);
+
+        public int AtualizarEnderecoClienteService(int cpf, string endereco);
+
+
     }
 }

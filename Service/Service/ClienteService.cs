@@ -32,9 +32,16 @@ namespace Service
             return _clienteRepository.ObterTodosClientesRepository();
         }
 
-        public IEnumerable<Cliente> ObterClientePeloCpfENomeService(string filtroNomeOuCpf)
+        public IEnumerable<Cliente> ObterClientePeloCpfENomeService(string filtroCpfOuNome)
         {
-            return _clienteRepository.ObterClientePeloCpfENomeRepository(filtroNomeOuCpf);
+            return _clienteRepository.ObterClientePeloCpfENomeRepository(filtroCpfOuNome);
+        }
+
+        public int AtualizarEnderecoClienteService(int cpf, string endereco)
+        {
+
+            //fazer verificação de cpf existente no banco para depois atualizar
+            return _clienteRepository.AtualizarEnderecoClienteRepository(cpf, endereco);
         }
     }
 

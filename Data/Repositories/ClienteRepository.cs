@@ -52,7 +52,6 @@ namespace Data.Repositories
             try
             {
                 
-
                 const string sql = "" +
                     "SELECT * FROM cliente";
 
@@ -73,18 +72,44 @@ namespace Data.Repositories
         }
 
 
-        public IEnumerable<Cliente> ObterClientePeloCpfENomeRepository(string filtroNomeOuCpf)
+        public IEnumerable<Cliente> ObterClientePeloCpfENomeRepository(string filtroCpfOuNome)
         {
             try
             {
                 var parametros = new DynamicParameters();
-                parametros.Add("@filtro", filtroNomeOuCpf, DbType.String);
+                parametros.Add("@filtro", filtroCpfOuNome, DbType.String);
 
                 const string sql = "SELECT * FROM cliente WHERE nome = @filtro";
 
                 ValidaConexao();
 
                 var resultado = _conexao.Query<Cliente>(sql);
+
+                Dispose();
+
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERRO: {ex.Message}");
+            }
+        }
+
+        public int AtualizarEnderecoClienteRepository(int cpf, string endereco)
+        {
+            try
+            {
+                var parametros = new DynamicParameters();
+                parametros.Add("@cpf", cpf, DbType.Int64);
+                parametros.Add("@endereco", endereco, DbType.String);
+
+                const string sql = "UPDATE cliente SET endereco = @endereco WHERE cpf = @cpf";
+
+
+                ValidaConexao();
+
+                var resultado = _conexao.Execute(sql, parametros);
 
                 Dispose();
 

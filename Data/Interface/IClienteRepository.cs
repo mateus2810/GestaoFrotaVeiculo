@@ -10,5 +10,7 @@ namespace Data.Interface
         public IEnumerable<Cliente> ObterTodosClientesRepository();
 
         public IEnumerable<Cliente> ObterClientePeloCpfENomeRepository(string filtroNomeOuCpf);
+
+        public int AtualizarEnderecoClienteRepository(int cpf, string endereco);
     }
 }
