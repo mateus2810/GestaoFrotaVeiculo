@@ -33,5 +33,10 @@ namespace Service.Service
         {
             return _veiculoRepository.ObterVeiculoPelaPlacaRepository(numeroPlaca);
         }
+
+        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaService(string filtroModeloOuFabricante)
+        {
+            return _veiculoRepository.ObterVeiculoPeloModeloOuMarcaRepository(filtroModeloOuFabricante);
+        }
     }
 }

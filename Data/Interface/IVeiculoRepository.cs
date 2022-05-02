@@ -10,5 +10,6 @@ namespace Data.Interfaces
         public IEnumerable<Veiculo> InserirVeiculoRepository(Veiculo veiculo);
 
         public IEnumerable<Veiculo> ObterVeiculoPelaPlacaRepository(string numeroPlaca);
+        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaRepository(string filtroModeloOuFabricante);
     }
 }

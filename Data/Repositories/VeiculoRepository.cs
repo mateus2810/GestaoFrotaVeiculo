@@ -95,5 +95,33 @@ namespace Data
                 throw new Exception($"ERRO: {ex.Message}");
             }
         }
+
+        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaRepository(string filtroModeloOuFabricante)
+        {
+            try
+            {
+                var parametros = new DynamicParameters();
+                parametros.Add("@filtroModeloOuFabricante", "%" + filtroModeloOuFabricante + "%", DbType.String);
+
+                const string sql = "SELECT * FROM veiculo " +
+                    "INNER JOIN fabricante ON fabricante.id_fabricante = veiculo.id_fabricante " +
+                    "INNER JOIN modelo ON modelo.id_modelo = veiculo.id_modelo " +
+                    "WHERE fabricante.nome_fabricante = @filtroModeloOuFabricante " +
+                    "OR modelo.nome_modelo LIKE @filtroModeloOuFabricante";
+
+                ValidaConexao();
+
+                var resultado = _conexao.Query<Veiculo>(sql, parametros);
+
+                Dispose();
+
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERRO: {ex.Message}");
+            }
+        }
     }
 }

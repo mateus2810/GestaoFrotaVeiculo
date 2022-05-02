@@ -7,5 +7,6 @@ namespace Service.Interface
     {
         public IEnumerable<Veiculo> InserirVeiculoService(Veiculo veiculo);
         public IEnumerable<Veiculo> ObterVeiculoPelaPlacaService(string numeroPlaca);
+        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaService(string filtroModeloOuFabricante);
     }
 }
