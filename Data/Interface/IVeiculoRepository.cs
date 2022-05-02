@@ -7,6 +7,8 @@ namespace Data.Interfaces
     {
         public IEnumerable<Ator> Teste();
 
-        public IEnumerable<Veiculo> InserirVeiculo(Veiculo veiculo);
+        public IEnumerable<Veiculo> InserirVeiculoRepository(Veiculo veiculo);
+
+        public IEnumerable<Veiculo> ObterVeiculoPelaPlacaRepository(string numeroPlaca);
     }
 }

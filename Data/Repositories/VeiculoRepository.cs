@@ -15,7 +15,7 @@ namespace Data
         {
         }
 
-        public IEnumerable<Veiculo> InserirVeiculo(Veiculo veiculo)
+        public IEnumerable<Veiculo> InserirVeiculoRepository(Veiculo veiculo)
         {
             try
             {
@@ -69,6 +69,31 @@ namespace Data
                 throw new Exception($"ERRO: {ex.Message}");
             }
 
+        }
+
+        public IEnumerable<Veiculo> ObterVeiculoPelaPlacaRepository(string numeroPlaca)
+        {
+            try
+            {
+                var parametros = new DynamicParameters();
+                parametros.Add("@numeroPlaca","%"+ numeroPlaca + "%", DbType.String);
+
+
+                const string sql = "SELECT * FROM veiculo where numero_placa LIKE @numeroPlaca";
+
+                ValidaConexao();
+
+                var resultado = _conexao.Query<Veiculo>(sql, parametros);
+
+                Dispose();
+
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERRO: {ex.Message}");
+            }
         }
     }
 }

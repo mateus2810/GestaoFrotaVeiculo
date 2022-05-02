@@ -5,6 +5,7 @@ namespace Service.Interface
 {
     public interface IVeiculoService
     {
-        public IEnumerable<Veiculo> InserirVeiculo(Veiculo veiculo);
+        public IEnumerable<Veiculo> InserirVeiculoService(Veiculo veiculo);
+        public IEnumerable<Veiculo> ObterVeiculoPelaPlacaService(string numeroPlaca);
     }
 }

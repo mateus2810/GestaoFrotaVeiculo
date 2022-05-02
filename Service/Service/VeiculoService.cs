@@ -14,7 +14,7 @@ namespace Service.Service
         {
             _veiculoRepository = veiculoRepository;              
         }
-        public IEnumerable<Veiculo> InserirVeiculo(Veiculo veiculo)
+        public IEnumerable<Veiculo> InserirVeiculoService(Veiculo veiculo)
         {
 
             //regra para não inserir a mesma placa no veiculo
@@ -26,7 +26,12 @@ namespace Service.Service
             }
             
             
-            return _veiculoRepository.InserirVeiculo(veiculo);
+            return _veiculoRepository.InserirVeiculoRepository(veiculo);
+        }
+
+        public IEnumerable<Veiculo> ObterVeiculoPelaPlacaService(string numeroPlaca)
+        {
+            return _veiculoRepository.ObterVeiculoPelaPlacaRepository(numeroPlaca);
         }
     }
 }

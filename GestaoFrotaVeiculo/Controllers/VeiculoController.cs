@@ -20,7 +20,19 @@ namespace GestaoFrotaVeiculo.Controllers
         [HttpPost]
         public ActionResult<IEnumerable<Veiculo>> InserirVeiculo([FromBody] Veiculo veiculo)
         {
-            var retorno = Created(string.Empty, _veiculoService.InserirVeiculo(veiculo));
+            
+            var retorno = Created(string.Empty, _veiculoService.InserirVeiculoService(veiculo));
+
+            //colocar msg de erro para quando njao tiver cliente existente
+
+            return retorno;
+        }
+
+        [HttpGet]
+        [Route("/listarPelaPlaca")]
+        public ActionResult<IEnumerable<Veiculo>> ObterVeiculoPelaPlaca([FromQuery] string numero_placa)
+        {
+            var retorno = Ok(_veiculoService.ObterVeiculoPelaPlacaService(numero_placa));
 
             //colocar msg de erro para quando njao tiver cliente existente
 
