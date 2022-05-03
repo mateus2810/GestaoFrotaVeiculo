@@ -7,10 +7,10 @@ using System.IO;
 
 namespace Data.Repositories.Base
 {
-    public class DbSession: IDisposable//verificar necessidade DbSession<t>
+    public class DbSession: IDisposable
     {
         protected readonly MySqlConnection _conexao;
-        public DbSession(IConfiguration config)//configuração do meu banco de dados local
+        public DbSession(IConfiguration config)
         {
             try
             {

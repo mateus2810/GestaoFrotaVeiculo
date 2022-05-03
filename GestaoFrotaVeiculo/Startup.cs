@@ -42,6 +42,9 @@ namespace GestaoFrotaVeiculo
             });
 
             services.AddScoped<DbSession>();
+            //testar depois
+            services.AddTransient<IReservaService, ReservaService>();
+            services.AddTransient<IReservaRepository, ReservaRepository>();
             services.AddTransient<IVeiculoService, VeiculoService>();
             services.AddTransient<IVeiculoRepository, VeiculoRepository>();
             services.AddTransient<IClienteService, ClienteService>();
