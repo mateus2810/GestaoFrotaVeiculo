@@ -106,7 +106,7 @@ namespace Data
                 const string sql = "SELECT * FROM veiculo " +
                     "INNER JOIN fabricante ON fabricante.id_fabricante = veiculo.id_fabricante " +
                     "INNER JOIN modelo ON modelo.id_modelo = veiculo.id_modelo " +
-                    "WHERE fabricante.nome_fabricante = @filtroModeloOuFabricante " +
+                    "WHERE fabricante.nome_fabricante LIKE @filtroModeloOuFabricante " +
                     "OR modelo.nome_modelo LIKE @filtroModeloOuFabricante";
 
                 ValidaConexao();
