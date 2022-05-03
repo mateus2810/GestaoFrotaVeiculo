@@ -1,6 +1,7 @@
 ﻿using Data.Entidade;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
+using System;
 using System.Collections.Generic;
 
 namespace GestaoFrotaVeiculo.Controllers
@@ -32,19 +33,21 @@ namespace GestaoFrotaVeiculo.Controllers
         }
 
 
-        //[HttpPost]
-        //[Route("reserva")]
-        //public ActionResult InserirReserva(Reserva reserva)
-        //{
+        [HttpPost]
+        [Route("InserirReserva")]
+        public ActionResult InserirReserva(int id_cliente, int id_veiculo, DateTime data_prev_devolucao)
+        {
 
-        //    var resposta = _reservaService.InserirReservaService(reserva);
+            var resposta = _reservaService.InserirReservaService(id_cliente, id_veiculo, data_prev_devolucao);
 
-        //    if (resposta == null)
-        //    {
-        //        return NoContent();
-        //    }
+            if (resposta == null)
+            {
+                return NoContent();
+            }
 
-        //    return Ok(resposta);
-        //}
+            return Created(string.Empty, resposta);
+        }
+
+        //rota devolver veiculo
     }
 }

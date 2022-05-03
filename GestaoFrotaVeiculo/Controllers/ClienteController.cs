@@ -25,7 +25,7 @@ namespace GestaoFrotaVeiculo.Controllers
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<IEnumerable<Cliente>> InserirCliente([FromBody] Cliente cliente)
+        public ActionResult InserirCliente([FromBody] Cliente cliente)
         {
             
             return Created(string.Empty,_clienteServices.InserirClienteService(cliente));

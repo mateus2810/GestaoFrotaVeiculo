@@ -1,6 +1,7 @@
 ﻿using Data.Entidade;
 using Data.Interface;
 using Service.Interface;
+using System;
 using System.Collections.Generic;
 
 namespace Service.Service
@@ -12,14 +13,15 @@ namespace Service.Service
         {
             _reservaRepository = reservaRepository;
         }
+
         public IEnumerable<ReservaCliente> ObterReservaClienteService(int cpf)
         {
             return _reservaRepository.ObterReservaClienteRepository(cpf);
         }
 
-        //public IEnumerable<ReservaCliente> InserirReservaService(int cpf);
-        //{
-        //    return _reservaService.ObterReservaCliente(cpf);
-        //}
+        public IEnumerable<ReservaCliente> InserirReservaService(int id_cliente, int id_veiculo, DateTime data_prev_devolucao)
+        {
+            return _reservaRepository.InserirReservaRepository(id_cliente, id_veiculo, data_prev_devolucao);
+        }
     }
 }
