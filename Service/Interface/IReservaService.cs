@@ -12,5 +12,7 @@ namespace Service.Interface
 
         public int AtualizarDataRetiradaService(DateTime data_retirada,int id_veiculo);
         public int AtualizarDataPrevisaDevolucaoService(DateTime data_prev_devolucao, int id_veiculo);
+
+        public IEnumerable<ReservaCliente> ObterVeiculoRetiradoService(DateTime data_inicio, DateTime data_fim);
     }
 }

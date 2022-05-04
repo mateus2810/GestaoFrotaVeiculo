@@ -77,6 +77,21 @@ namespace GestaoFrotaVeiculo.Controllers
             return Created(string.Empty, resposta);
         }
 
+        [HttpGet]
+        [Route("veiculos_retirados")]
+        public ActionResult ObterVeiculosRetirados(DateTime data_inicio, DateTime data_fim)
+        {
+
+            var resposta = _reservaService.ObterVeiculoRetiradoService(data_inicio, data_fim);
+
+            if (resposta == null)
+            {
+                return NoContent();
+            }
+
+            return Created(string.Empty, resposta);
+        }
+
         //rota devolver veiculo
     }
 }

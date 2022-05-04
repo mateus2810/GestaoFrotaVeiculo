@@ -33,5 +33,10 @@ namespace Service.Service
         {
             return _reservaRepository.AtualizarDataPrevisaDevolucaoRepository(data_prev_devolucao, id_veiculo);
         }
+
+        public IEnumerable<ReservaCliente> ObterVeiculoRetiradoService(DateTime data_inicio, DateTime data_fim)
+        {
+            return _reservaRepository.ObterVeiculoRetiradoService(data_inicio, data_fim);
+        }
     }
 }

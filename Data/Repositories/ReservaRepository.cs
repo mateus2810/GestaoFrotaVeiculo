@@ -126,5 +126,35 @@ namespace Data.Repositories
                 throw new Exception($"ERRO: {ex.Message}");
             }
         }
+
+        public IEnumerable<ReservaCliente> ObterVeiculoRetiradoService(DateTime data_inicio, DateTime data_fim)
+        {
+            try
+            {
+                var parametros = new DynamicParameters();
+                parametros.Add("@data_inicio", data_inicio, DbType.Date);
+                parametros.Add("@data_fim", data_fim, DbType.Date);
+
+                const string sql = @"SELECT cliente.nome AS nome_cliente, cliente.cpf, veiculo.numero_placa, fabricante.nome_fabricante, modelo.nome_modelo, reserva.data_retirada, reserva.data_prev_devolucao, reserva.data_devolucao FROM cliente
+                            INNER JOIN reserva ON reserva.id_cliente = cliente.id_cliente
+                            INNER JOIN veiculo ON veiculo.id_veiculo = reserva.id_veiculo
+                            INNER JOIN modelo ON modelo.id_modelo = veiculo.id_modelo
+                            INNER JOIN fabricante ON fabricante.id_fabricante = modelo.id_fabricante
+                            WHERE data_retirada BETWEEN @data_inicio AND @data_fim";
+
+                ValidaConexao();
+
+                var resultado = _conexao.Query<ReservaCliente>(sql, parametros);
+
+                Dispose();
+
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERRO: {ex.Message}");
+            }
+        }
     }
 }
