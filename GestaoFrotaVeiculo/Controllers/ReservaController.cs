@@ -62,6 +62,21 @@ namespace GestaoFrotaVeiculo.Controllers
             return Created(string.Empty, resposta);
         }
 
+        [HttpPut]
+        [Route("data_prev_devolucao")]
+        public ActionResult AtualizarDataPrevisaDevolucao(DateTime data_prev_devolucao, int id_veiculo)
+        {
+
+            var resposta = _reservaService.AtualizarDataPrevisaDevolucaoService(data_prev_devolucao, id_veiculo);
+
+            if (resposta == null)
+            {
+                return NoContent();
+            }
+
+            return Created(string.Empty, resposta);
+        }
+
         //rota devolver veiculo
     }
 }
