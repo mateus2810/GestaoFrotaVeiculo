@@ -76,5 +76,30 @@ namespace Data.Repositories
                 throw new Exception($"ERRO: {ex.Message}");
             }
         }
+
+        public int AtualizarDataRetiradaRepository(DateTime data_retirada, int id_veiculo)
+        {
+            try
+            {
+                var parametros = new DynamicParameters();
+                parametros.Add("@data_retirada", data_retirada, DbType.Date);
+                parametros.Add("@id_veiculo", id_veiculo, DbType.Int64);
+
+                const string sql = @"UPDATE reserva SET data_retirada = @data_retirada WHERE id_veiculo = @id_veiculo";
+
+                ValidaConexao();
+
+                var resultado = _conexao.Execute(sql, parametros);
+
+                Dispose();
+
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERRO: {ex.Message}");
+            }
+        }
     }
 }

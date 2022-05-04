@@ -9,5 +9,7 @@ namespace Service.Interface
         public IEnumerable<ReservaCliente> ObterReservaClienteService(int cpf);
 
         public IEnumerable<ReservaCliente> InserirReservaService(int id_cliente, int id_veiculo, DateTime data_prev_devolucao);
+
+        public int AtualizarDataRetiradaService(DateTime data_prev_devolucao,int id_veiculo);
     }
 }

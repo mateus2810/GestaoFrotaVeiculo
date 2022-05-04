@@ -23,5 +23,10 @@ namespace Service.Service
         {
             return _reservaRepository.InserirReservaRepository(id_cliente, id_veiculo, data_prev_devolucao);
         }
+
+        public int AtualizarDataRetiradaService(DateTime data_retirada, int id_veiculo)
+        {
+            return _reservaRepository.AtualizarDataRetiradaRepository(data_retirada, id_veiculo);
+        }
     }
 }

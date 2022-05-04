@@ -34,11 +34,25 @@ namespace GestaoFrotaVeiculo.Controllers
 
 
         [HttpPost]
-        [Route("InserirReserva")]
+        [Route("inserir_reserva")]
         public ActionResult InserirReserva(int id_cliente, int id_veiculo, DateTime data_prev_devolucao)
         {
-
             var resposta = _reservaService.InserirReservaService(id_cliente, id_veiculo, data_prev_devolucao);
+
+            if (resposta == null)
+            {
+                return NoContent();
+            }
+
+            return Created(string.Empty, resposta);
+        }
+
+        [HttpPut]
+        [Route("data_retirada")]
+        public ActionResult AtualizarDataRetirada(DateTime data_retirada, int id_veiculo)
+        {
+
+            var resposta = _reservaService.AtualizarDataRetiradaService(data_retirada, id_veiculo);
 
             if (resposta == null)
             {
