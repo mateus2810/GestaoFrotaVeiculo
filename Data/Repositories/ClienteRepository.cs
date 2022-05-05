@@ -31,7 +31,6 @@ namespace Data.Repositories
                     "(nome, cpf, nascimento, numero_cnh, endereco)" +
                     " VALUES (@nome, @cpf, @nascimento, @numero_cnh, @endereco)";
 
-
                 ValidaConexao();
 
                 var resultado = _conexao.Query<Cliente>(sql, parametros);
