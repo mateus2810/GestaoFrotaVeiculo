@@ -31,7 +31,6 @@ namespace GestaoFrotaVeiculo.Controllers
             return Created(string.Empty, _clienteServices.InserirClienteService(cliente));
         }
 
-
         [HttpGet]
         //conferir retornos atuais
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -43,14 +42,13 @@ namespace GestaoFrotaVeiculo.Controllers
         {
             var resposta = _clienteServices.ObterTodosClientesService();
 
-            if (resposta == null)
+            if (!resposta.Any())
             {
                 return NoContent();
             }
 
             return Ok(_clienteServices.ObterTodosClientesService());
         }
-
 
 
         //conferir rota depois retorno certinho
@@ -66,7 +64,7 @@ namespace GestaoFrotaVeiculo.Controllers
         {
             var resposta = _clienteServices.ObterClientePeloCpfENomeService(filtroCpfOuNome);
 
-            if (resposta == null)
+            if (!resposta.Any())
             {
                 return NoContent();
             }
