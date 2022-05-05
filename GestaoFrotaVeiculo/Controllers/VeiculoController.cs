@@ -32,23 +32,31 @@ namespace GestaoFrotaVeiculo.Controllers
         [Route("/listarPelaPlaca")]
         public ActionResult<IEnumerable<Veiculo>> ObterVeiculoPelaPlaca([FromQuery] string numero_placa)//ajustar todas as variaves case
         {
-            var retorno = Ok(_veiculoService.ObterVeiculoPelaPlacaService(numero_placa));
+            var resposta = _veiculoService.ObterVeiculoPelaPlacaService(numero_placa);
+
+            if (resposta == null)
+            {
+                return NoContent();
+            }
 
             //colocar msg de erro para quando njao tiver cliente existente
 
-            return retorno;
+            return Ok(resposta);
         }
 
         [HttpGet]
         [Route("/listarPeloModeloOuMarca")]
         public ActionResult<IEnumerable<Veiculo>> ObterVeiculoPeloModeloOuMarca([FromQuery] string filtroModeloOuFabricante)
         {
-            var retorno = Ok(_veiculoService.ObterVeiculoPeloModeloOuMarcaService(filtroModeloOuFabricante));
+            var resposta = _veiculoService.ObterVeiculoPeloModeloOuMarcaService(filtroModeloOuFabricante);
 
+            if (resposta == null)
+            {
+                return NoContent();
+            }
             //colocar msg de erro para quando njao tiver cliente existente
 
-            return retorno;
+            return Ok(resposta);
         }
-
     }
 }
