@@ -82,7 +82,14 @@ namespace GestaoFrotaVeiculo.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult AtualizarEnderecoCliente([FromQuery] int cpf, string endereco)
         {
-            return Ok(_clienteServices.AtualizarEnderecoClienteService(cpf, endereco));
+            var resposta = _clienteServices.AtualizarEnderecoClienteService(cpf, endereco);
+
+            if (resposta == 0)
+            {
+                return NoContent();
+            }
+
+            return Ok(resposta);
         }
 
     }

@@ -29,9 +29,9 @@ namespace Service.Service
             return _reservaRepository.AtualizarDataRetiradaRepository(data_retirada, id_veiculo);
         }
 
-        public int AtualizarDataPrevisaDevolucaoService(DateTime data_prev_devolucao, int id_veiculo)
+        public int AtualizarDataPrevisaDevolucaoService(DateTime data_prev_devolucao, int id_reserva)
         {
-            return _reservaRepository.AtualizarDataPrevisaDevolucaoRepository(data_prev_devolucao, id_veiculo);
+            return _reservaRepository.AtualizarDataPrevisaDevolucaoRepository(data_prev_devolucao, id_reserva);
         }
 
         public IEnumerable<ReservaCliente> ObterVeiculoRetiradoService(DateTime data_inicio, DateTime data_fim)

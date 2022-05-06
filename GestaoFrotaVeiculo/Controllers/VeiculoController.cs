@@ -1,7 +1,9 @@
 ﻿using Data.Entidade;
+using Data.Output;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GestaoFrotaVeiculo.Controllers
 {
@@ -34,7 +36,7 @@ namespace GestaoFrotaVeiculo.Controllers
         {
             var resposta = _veiculoService.ObterVeiculoPelaPlacaService(numero_placa);
 
-            if (resposta == null)
+            if (resposta.Count() == 0)
             {
                 return NoContent();
             }
@@ -46,11 +48,11 @@ namespace GestaoFrotaVeiculo.Controllers
 
         [HttpGet]
         [Route("/listarPeloModeloOuMarca")]
-        public ActionResult<IEnumerable<Veiculo>> ObterVeiculoPeloModeloOuMarca([FromQuery] string filtroModeloOuFabricante)
+        public ActionResult<IEnumerable<InfoVeiculo>> ObterVeiculoPeloModeloOuMarca([FromQuery] string filtroModeloOuFabricante)
         {
             var resposta = _veiculoService.ObterVeiculoPeloModeloOuMarcaService(filtroModeloOuFabricante);
 
-            if (resposta == null)
+            if (resposta.Count() == 0)
             {
                 return NoContent();
             }

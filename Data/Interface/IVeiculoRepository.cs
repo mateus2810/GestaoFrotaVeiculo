@@ -1,4 +1,5 @@
 ﻿using Data.Entidade;
+using Data.Output;
 using System.Collections.Generic;
 
 namespace Data.Interfaces
@@ -10,6 +11,6 @@ namespace Data.Interfaces
         public IEnumerable<Veiculo> InserirVeiculoRepository(Veiculo veiculo);
 
         public IEnumerable<Veiculo> ObterVeiculoPelaPlacaRepository(string numeroPlaca);
-        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaRepository(string filtroModeloOuFabricante);
+        public IEnumerable<InfoVeiculo> ObterVeiculoPeloModeloOuMarcaRepository(string filtroModeloOuFabricante);
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GestaoFrotaVeiculo.Controllers
 {
@@ -64,10 +65,10 @@ namespace GestaoFrotaVeiculo.Controllers
 
         [HttpPut]
         [Route("data_prev_devolucao")]
-        public ActionResult AtualizarDataPrevisaDevolucao(DateTime data_prev_devolucao, int id_veiculo)
+        public ActionResult AtualizarDataPrevisaDevolucao(DateTime data_prev_devolucao, int id_reserva)
         {
 
-            var resposta = _reservaService.AtualizarDataPrevisaDevolucaoService(data_prev_devolucao, id_veiculo);
+            var resposta = _reservaService.AtualizarDataPrevisaDevolucaoService(data_prev_devolucao, id_reserva);
 
             if (resposta == null)
             {
@@ -79,17 +80,17 @@ namespace GestaoFrotaVeiculo.Controllers
 
         [HttpGet]
         [Route("veiculos_retirados")]
-        public ActionResult ObterVeiculosRetirados(DateTime data_inicio, DateTime data_fim)
+        public ActionResult<IEnumerable<ReservaCliente>> ObterVeiculosRetirados(DateTime data_inicio, DateTime data_fim)
         {
 
             var resposta = _reservaService.ObterVeiculoRetiradoService(data_inicio, data_fim);
 
-            if (resposta == null)
+            if (resposta.Count() == 0)
             {
                 return NoContent();
             }
 
-            return Created(string.Empty, resposta);
+            return Ok(resposta);
         }
 
         //rota devolver veiculo

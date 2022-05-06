@@ -12,7 +12,7 @@ namespace Data.Interface
 
         public int AtualizarDataRetiradaRepository(DateTime data_retirada, int id_veiculo);
 
-        public int AtualizarDataPrevisaDevolucaoRepository(DateTime data_prev_devolucao, int id_veiculo);
+        public int AtualizarDataPrevisaDevolucaoRepository(DateTime data_prev_devolucao, int id_reserva);
 
         public IEnumerable<ReservaCliente> ObterVeiculoRetiradoService(DateTime data_inicio, DateTime data_fim);
     }

@@ -102,15 +102,15 @@ namespace Data.Repositories
             }
         }
 
-        public int AtualizarDataPrevisaDevolucaoRepository(DateTime data_prev_devolucao, int id_veiculo)
+        public int AtualizarDataPrevisaDevolucaoRepository(DateTime data_prev_devolucao, int id_reserva)
         {
             try
             {
                 var parametros = new DynamicParameters();
                 parametros.Add("@data_prev_devolucao", data_prev_devolucao, DbType.Date);
-                parametros.Add("@id_veiculo", id_veiculo, DbType.Int64);
+                parametros.Add("@id_reserva", id_reserva, DbType.Int64);
 
-                const string sql = @"UPDATE reserva SET data_retirada = @data_prev_devolucao WHERE id_veiculo = @id_veiculo";
+                const string sql = @"UPDATE reserva SET data_retirada = @data_prev_devolucao WHERE id_veiculo = @id_reserva";
 
                 ValidaConexao();
 

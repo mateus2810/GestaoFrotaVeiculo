@@ -1,4 +1,5 @@
 ﻿using Data.Entidade;
+using Data.Output;
 using System.Collections.Generic;
 
 namespace Service.Interface
@@ -7,6 +8,6 @@ namespace Service.Interface
     {
         public IEnumerable<Veiculo> InserirVeiculoService(Veiculo veiculo);
         public IEnumerable<Veiculo> ObterVeiculoPelaPlacaService(string numeroPlaca);
-        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaService(string filtroModeloOuFabricante);
+        public IEnumerable<InfoVeiculo> ObterVeiculoPeloModeloOuMarcaService(string filtroModeloOuFabricante);
     }
 }

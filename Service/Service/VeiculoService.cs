@@ -1,5 +1,6 @@
 ﻿using Data.Entidade;
 using Data.Interfaces;
+using Data.Output;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace Service.Service
             return _veiculoRepository.ObterVeiculoPelaPlacaRepository(numeroPlaca);
         }
 
-        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaService(string filtroModeloOuFabricante)
+        public IEnumerable<InfoVeiculo> ObterVeiculoPeloModeloOuMarcaService(string filtroModeloOuFabricante)
         {
             return _veiculoRepository.ObterVeiculoPeloModeloOuMarcaRepository(filtroModeloOuFabricante);
         }

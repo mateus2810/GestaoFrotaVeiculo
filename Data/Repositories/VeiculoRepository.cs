@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Data.Entidade;
 using Data.Interfaces;
+using Data.Output;
 using Data.Repositories.Base;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -96,22 +97,22 @@ namespace Data
             }
         }
 
-        public IEnumerable<Veiculo> ObterVeiculoPeloModeloOuMarcaRepository(string filtroModeloOuFabricante)
+        public IEnumerable<InfoVeiculo> ObterVeiculoPeloModeloOuMarcaRepository(string filtroModeloOuFabricante)
         {
             try
             {
                 var parametros = new DynamicParameters();
                 parametros.Add("@filtroModeloOuFabricante", "%" + filtroModeloOuFabricante + "%", DbType.String);
 
-                const string sql = "SELECT * FROM veiculo " +
-                    "INNER JOIN fabricante ON fabricante.id_fabricante = veiculo.id_fabricante " +
-                    "INNER JOIN modelo ON modelo.id_modelo = veiculo.id_modelo " +
-                    "WHERE fabricante.nome_fabricante LIKE @filtroModeloOuFabricante " +
-                    "OR modelo.nome_modelo LIKE @filtroModeloOuFabricante";
+                const string sql = @"SELECT * FROM veiculo
+                    INNER JOIN fabricante ON fabricante.id_fabricante = veiculo.id_fabricante
+                    INNER JOIN modelo ON modelo.id_modelo = veiculo.id_modelo
+                    WHERE fabricante.nome_fabricante LIKE @filtroModeloOuFabricante
+                    OR modelo.nome_modelo LIKE @filtroModeloOuFabricante";
 
                 ValidaConexao();
 
-                var resultado = _conexao.Query<Veiculo>(sql, parametros);
+                var resultado = _conexao.Query<InfoVeiculo>(sql, parametros);
 
                 Dispose();
 
