@@ -22,9 +22,6 @@ namespace GestaoFrotaVeiculo.Controllers
         [HttpPost]
         //conferir retornos atuais
         [ProducesResponseType(StatusCodes.Status201Created)]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult InserirCliente([FromBody] Cliente cliente)
         {          
@@ -35,8 +32,6 @@ namespace GestaoFrotaVeiculo.Controllers
         //conferir retornos atuais
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<IEnumerable<Cliente>> ObterTodosCliente()
         {
@@ -57,8 +52,6 @@ namespace GestaoFrotaVeiculo.Controllers
         //conferir retornos atuais
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<IEnumerable<Cliente>> ObterClientePeloCpf([FromQuery]string filtroCpfOuNome)
         {
@@ -77,8 +70,6 @@ namespace GestaoFrotaVeiculo.Controllers
         //conferir retornos atuais
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult AtualizarEnderecoCliente([FromQuery] int cpf, string endereco)
         {

@@ -19,12 +19,6 @@ namespace Service.Service
         {
 
             //regra para não inserir a mesma placa no veiculo
-
-
-            if(veiculo.id_cliente == 20)
-            {
-                throw new Exception("esse cliente é invalido");
-            }
             
             
             return _veiculoRepository.InserirVeiculoRepository(veiculo);

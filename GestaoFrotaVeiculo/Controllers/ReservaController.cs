@@ -1,4 +1,4 @@
-﻿using Data.Entidade;
+﻿using Data.Output;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
 using System;

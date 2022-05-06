@@ -23,14 +23,15 @@ namespace Data
                 var parametros = new DynamicParameters();
                 parametros.Add("@id_cliente", veiculo?.id_cliente, DbType.Int64);
                 parametros.Add("@id_fabricante", veiculo.id_fabricante, DbType.Int64);
-                parametros.Add("@numero_placa", veiculo.numero_placa, DbType.Date);
+                parametros.Add("@id_modelo", veiculo.id_modelo, DbType.Int64);
+                parametros.Add("@numero_placa", veiculo.numero_placa, DbType.String);
                 parametros.Add("@chassi", veiculo.chassi, DbType.String);
 
 
                 const string sql = "" +
                     "INSERT INTO veiculo " +
-                    "(id_cliente, id_fabricante, numero_placa, chassi)" +
-                    " VALUES (@id_cliente, @id_fabricante, @numero_placa, @chassi)";
+                    "(id_cliente, id_fabricante, id_modelo, numero_placa, chassi)" +
+                    " VALUES (@id_cliente, @id_fabricante,  @id_modelo, @numero_placa, @chassi)";
 
 
                 ValidaConexao();

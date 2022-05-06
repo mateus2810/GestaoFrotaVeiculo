@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Data.Entidade
+namespace Data.Output
 {
     public class ReservaCliente
     {
         public string nome_cliente { get; set; }
-        public int cpf { get; set; }
+        public string cpf { get; set; }
         public string nome_fabricante { get; set; }
         public string nome_modelo { get; set; }
         public string numero_placa { get; set; }

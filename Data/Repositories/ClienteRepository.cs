@@ -20,8 +20,8 @@ namespace Data.Repositories
             try
             {
                 var parametros = new DynamicParameters();
-                parametros.Add("@nome", cliente?.nome, DbType.Int64);
-                parametros.Add("@cpf", cliente.cpf, DbType.Int64);
+                parametros.Add("@nome", cliente?.nome, DbType.String);
+                parametros.Add("@cpf", cliente.cpf, DbType.String);
                 parametros.Add("@nascimento", cliente.nascimento, DbType.Date);
                 parametros.Add("@numero_cnh", cliente.nome, DbType.String);
                 parametros.Add("@endereco", cliente.endereco, DbType.String);
@@ -49,11 +49,9 @@ namespace Data.Repositories
         public IEnumerable<Cliente> ObterTodosClientesRepository()
         {
             try
-            {
-                
+            {            
                 const string sql = "" +
                     "SELECT * FROM cliente";
-
 
                 ValidaConexao();
 
@@ -101,7 +99,7 @@ namespace Data.Repositories
             try
             {
                 var parametros = new DynamicParameters();
-                parametros.Add("@cpf", cpf, DbType.Int64);
+                parametros.Add("@cpf", cpf, DbType.String);
                 parametros.Add("@endereco", endereco, DbType.String);
 
                 const string sql = "UPDATE cliente SET endereco = @endereco WHERE cpf = @cpf";

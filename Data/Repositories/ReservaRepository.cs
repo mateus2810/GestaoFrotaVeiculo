@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Data.Entidade;
 using Data.Interface;
+using Data.Output;
 using Data.Repositories.Base;
 using Microsoft.Extensions.Configuration;
 using System;
